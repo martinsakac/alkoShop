@@ -51,3 +51,11 @@ footer {
 h2 {
   padding-top: 50px;
 }
+
+.glyphicon-white, .glyphicon-white a {
+  color: #B6B6B5;
+}
+
+.active-tab {
+  color: #fff;
+}

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php require "php/startSession.php"; ?>
+
 <html lang="en">
 
 <head>
@@ -33,20 +36,52 @@
 
             <div class="col-md-9">
 
-<!-------------------------------------------- Carousel -------------------------------------------------- -->
-                <?php require "carousel.php"; ?>
+                <?php 
+                    $connection = mysqli_connect('localhost', 'root', 'root', 'alko_shop')
+                        or die ('Could not connect: ') . mysql_error();
+                ?>
 
-<!-------------------------------------------- Sekcia oblubene ------------------------------------------- -->
-                <?php require "cz_favourites.php"; ?>
+                <table border = '1'>
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $result = mysqli_query($connection, "select * from category");
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo "<tr>";
+                                echo "<td>" . $row['id_category'] . "</td>";
+                                echo "<td>" . $row['name'] . "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
 
-<!-------------------------------------------- Sekcia Pivo ----------------------------------------------- -->
-                <?php require "cz_beers.php"; ?>
+                <?php 
+                    if ((!isset($_REQUEST['tab']) && $_SESSION['tab'] == "home") || (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "home")) {
+                        require "carousel.php";
+                        require "cz_favourites.php";
+                        require "cz_beers.php"; 
+                        require "cz_wines.php";
+                        require "cz_spirits.php";
+                    }
 
-<!-------------------------------------------- Sekcia Vino ----------------------------------------------- -->
-                <?php require "cz_wines.php"; ?>
+                    if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "about") {
+                        require "cz_bodycontent_about.php";
+                    }
 
-<!-------------------------------------------- Sekcia Liehovin ------------------------------------------- -->
-                <?php require "cz_spirits.php"; ?>
+                    if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "contact") {
+                        require "cz_bodycontent_contact.php";
+                    }
+
+                    if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "basket") {
+                        require "cz_bodycontent_basket.php";
+                    }
+                ?>
                 
             </div>
 
