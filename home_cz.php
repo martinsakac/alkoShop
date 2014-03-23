@@ -21,6 +21,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
 
+    <!-- Jquery UI -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
 </head>
 
 <body>
@@ -36,31 +39,7 @@
 
             <div class="col-md-9">
 
-                <?php 
-                    $connection = mysqli_connect('localhost', 'root', 'root', 'alko_shop')
-                        or die ('Could not connect: ') . mysql_error();
-                ?>
-
-                <table border = '1'>
-                    <thead>
-                        <tr>
-                            <td>ID</td>
-                            <td>Name</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            $result = mysqli_query($connection, "select * from category");
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo "<tr>";
-                                echo "<td>" . $row['id_category'] . "</td>";
-                                echo "<td>" . $row['name'] . "</td>";
-                                echo "</tr>";
-                            }
-                        ?>
-                    </tbody>
-                </table>
-
+                <!-- Obsah tela -->
                 <?php 
                     if ((!isset($_REQUEST['tab']) && $_SESSION['tab'] == "home") || (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "home")) {
                         require "carousel.php";
@@ -95,6 +74,10 @@
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/myScript.js"></script>
+
+    <!--  Jquery + Jquery UI-->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 </body>
 

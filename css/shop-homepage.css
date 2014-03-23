@@ -53,9 +53,22 @@ h2 {
 }
 
 .glyphicon-white, .glyphicon-white a {
+  color: #fff;
+}
+
+.glyphicon-gray, .glyphicon-gray a {
   color: #B6B6B5;
 }
 
 .active-tab {
   color: #fff;
+}
+
+.my-numberselect {
+  max-width: 70px; 
+  max-height: 30px;
+}
+
+.boldFont {
+  font-weight: bold;
 }

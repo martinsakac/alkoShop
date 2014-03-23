@@ -21,25 +21,25 @@
                         echo "<li><a href='home_cz.php?tab=home'><span class='active-tab'>Domov</span></a></li>";
                         echo "<li><a href='home_cz.php?tab=about'>O nás</a></li>";
                         echo "<li><a href='home_cz.php?tab=contact'>Kontakt</a></li>";
-                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span><span> (" . $itemsCount . ")</span></a></li>";
+                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart glyphicon-gray'></span><span id='basketCount'> (" . $itemsCount . ")</span></a></li>";
                     }
                     if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "about") {
                         echo "<li><a href='home_cz.php?tab=home'><span>Domov</span></a></li>";
                         echo "<li><a href='home_cz.php?tab=about'><span class='active-tab'>O nás</span></a></li>";
                         echo "<li><a href='home_cz.php?tab=contact'>Kontakt</a></li>";
-                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span><span> (" . $itemsCount . ")</span></a></li>";
+                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart glyphicon-gray'></span><span id='basketCount'> (" . $itemsCount . ")</span></a></li>";
                     }
                     if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "contact") {
                         echo "<li><a href='home_cz.php?tab=home'><span>Domov</span></a></li>";
                         echo "<li><a href='home_cz.php?tab=about'>O nás</a></li>";
                         echo "<li><a href='home_cz.php?tab=contact'><span class='active-tab'>Kontakt</span></a></li>";
-                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span><span> (" . $itemsCount . ")</span></a></li>";
+                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart glyphicon-gray'></span><span id='basketCount'> (" . $itemsCount . ")</span></a></li>";
                     }
                     if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "basket") {
                         echo "<li><a href='home_cz.php?tab=home'><span>Domov</span></a></li>";
                         echo "<li><a href='home_cz.php?tab=about'>O nás</a></li>";
                         echo "<li><a href='home_cz.php?tab=contact'>Kontakt</a></li>";
-                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart active-tab'></span><span class='active-tab'> (" . $itemsCount . ")</span></a></li>";
+                        echo "<li><a href='home_cz.php?tab=basket'><span class='glyphicon glyphicon-shopping-cart active-tab'></span><span id='basketCount' class='active-tab'> (" . $itemsCount . ")</span></a></li>";
                     }
                 ?>
             </ul>
