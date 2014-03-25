@@ -24,6 +24,9 @@
     <!-- Jquery UI -->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
+    <!-- time picker -->
+    <link href="css/timepicker-addon.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -67,6 +70,7 @@
         </div>
 
     </div> <!-- /.container -->
+         
     
 <!-------------------------------------------- Paticka ---------------------------------------------------->
     <?php require "cz_footer.php"; ?>
@@ -78,6 +82,7 @@
     <!--  Jquery + Jquery UI-->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="js/timepicker-addon.js"></script>
 
 </body>
 

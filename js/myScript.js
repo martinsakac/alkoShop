@@ -7,6 +7,11 @@ $(function() {
     });
 });
 
+// time picker
+$(function () {
+    $('#timepicker').timepicker();
+});
+
 // sliding to elements
 $(function() {
     $(".oblubene-list").click(function(){
@@ -98,4 +103,6 @@ function updateQuantity(item_id){
     xmlhttp.open("GET", "updateQuantity.php?item_id=" + item_id + "&quantity=" + quantity, true);
     xmlhttp.send();
 }
+
+
 

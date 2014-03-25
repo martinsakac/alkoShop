@@ -72,3 +72,11 @@ h2 {
 .boldFont {
   font-weight: bold;
 }
+
+.my-error-message {
+  margin-top: 10px;
+}
+
+.required-field {
+  color: #FF8080;
+}

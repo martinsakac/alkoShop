@@ -37,7 +37,7 @@
     while ($row = mysqli_fetch_array($result)) {
         echo "<div class='col-sm-4 col-lg-4 col-md-4'>";
         echo "<div class='thumbnail'>";
-        echo "<img src='" . $row['picture'] ."' alt=''>";
+        echo "<img src='" . $row['picture'] ."' title='" . $row['name'] ."'>";
         echo "<div class='caption'>";
         echo "<h4 class='pull-right'>" . $row['price'] ." Kč</h4>";
         echo "<h4><a href=''>" . $row['name'] . "</a></h4>";
