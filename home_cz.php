@@ -47,7 +47,7 @@
                     if ((!isset($_REQUEST['tab']) && $_SESSION['tab'] == "home") || (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "home")) {
                         require "carousel.php";
                         require "cz_favourites.php";
-                        require "cz_beers.php"; 
+                        //require "cz_beers.php"; 
                         require "cz_wines.php";
                         require "cz_spirits.php";
                     }

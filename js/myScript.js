@@ -14,9 +14,9 @@ $(function () {
 
 // sliding to elements
 $(function() {
-    $(".oblubene-list").click(function(){
+    $(".akcia-list").click(function(){
         $("html, body").animate({
-            scrollTop:$("#sekciaOblubene").offset().top}, 1000);
+            scrollTop:$("#sekciaAkcia").offset().top}, 1000);
         return false;
     });
 
@@ -35,6 +35,33 @@ $(function() {
     $(".liehoviny-list").click(function(){
         $("html, body").animate({
             scrollTop:$("#sekciaLiehoviny").offset().top}, 1000);
+        return false;
+    });
+
+    // podla druhu liehoviny
+    $(".rum-liehoviny-list").click(function(){
+        $("html, body").animate({
+            scrollTop:$("#sekciaLiehovinyrum").offset().top}, 1000);
+        return false;
+    });
+    $(".whisky-liehoviny-list").click(function(){
+        $("html, body").animate({
+            scrollTop:$("#sekciaLiehovinywhisky").offset().top}, 1000);
+        return false;
+    });
+    $(".bylinky-liehoviny-list").click(function(){
+        $("html, body").animate({
+            scrollTop:$("#sekciaLiehovinybylinky").offset().top}, 1000);
+        return false;
+    });
+    $(".palenka-liehoviny-list").click(function(){
+        $("html, body").animate({
+            scrollTop:$("#sekciaLiehovinypalenka").offset().top}, 1000);
+        return false;
+    });
+    $(".tequila-liehoviny-list").click(function(){
+        $("html, body").animate({
+            scrollTop:$("#sekciaLiehovinytequila").offset().top}, 1000);
         return false;
     });
     
@@ -83,7 +110,7 @@ function removeItemFromBasket(item_id, delAllItems) {
     xmlhttp.send();
 }
 
-//
+// pri zmene mnozstva prepocita celkovu cenu nakupu
 function updateQuantity(item_id){
     var quantity = document.getElementById("select" + item_id).value;
     var price = parseInt(document.getElementById("price" + item_id).innerHTML);
@@ -94,9 +121,6 @@ function updateQuantity(item_id){
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("priceSum" + item_id).innerHTML = price * quantity + " Kč";
             document.getElementById("sucetCelkom").innerHTML = xmlhttp.responseText + " Kč";
-            console.log(quantity);
-            console.log(price);
-            console.log(xmlhttp.responseText);
         }
     }
 

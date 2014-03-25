@@ -12,7 +12,12 @@
 	<tbody>
 	<?php 
 
-		$connection = mysqli_connect('localhost', 'root', 'root', 'alko_shop')
+		$hostName = "localhost";
+		$userName = "root";
+		$password = "root";
+		$dbName = "alko_shop";
+
+		$connection = mysqli_connect($hostName, $userName, $password, $dbName)
                         or die ('Could not connect: ') . mysql_error();
         $counter = 1;
         $sucetHodnotyTovaru = 0;
@@ -57,18 +62,19 @@
         echo "Súčet celkom";
         echo "</td><td></td><td></td><td id='sucetCelkom' class='boldFont'>";
         echo $sucetHodnotyTovaru . " Kč";
-        echo "</td><td></td></tr>";
+        echo 	"</td><td><button onclick='removeItemFromBasket(0, true)' class='btn btn-danger pull-right'>
+							<span>Zmazať všetko </span>
+							<span class='glyphicon glyphicon-trash'></span>
+						  </button>
+				</td></tr>";
 
 	?>
 		
 	</tbody>
 </table>
 
-<button style='margin-left: 20px;' class='btn btn-primary pull-right'>Objednať</button>
-<button onclick='removeItemFromBasket(0, true)' class='btn btn-danger pull-right'>
-	<span>Zmazať všetko </span>
-	<span class='glyphicon glyphicon-trash'></span>
-</button>
+<!-- <button style='margin-left: 20px;' class='btn btn-primary pull-right'>Objednať</button> -->
+
 
 <!---------------------------- Spracovanie formularu  ---------------------------------------->
 <?php 
@@ -219,10 +225,12 @@
 								</div>";	
 		}
 
-		$headers = 'MIME-Version: 1.0' . '\r\n';
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
-		$headers .= 'From: sakac.m@hotmail.com' . '\r\n';
-		mail('sakac.m@gmail.com','test subject','test body',$headers);
+
+
+		// $headers = 'MIME-Version: 1.0' . '\r\n';
+		// $headers .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
+		// $headers .= 'From: sakac.m@hotmail.com' . '\r\n';
+		// mail('sakac.m@gmail.com','test subject','test body',$headers);
 
 		//$message = "Ahoj.";
 		//mail("sakac.m@gmail.com", "pokus", $message, "From: alkoshop@alkoshop.cz\n");

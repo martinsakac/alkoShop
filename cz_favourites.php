@@ -1,71 +1,32 @@
-<div id="sekciaOblubene" class="row" ><h2>Obľúbené</h2></div>
+<div id="sekciaAkcia" class="row" ><h2>Akcia</h2></div>
 
-<div class="row">
+<?php 
 
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <img src="pictures/products/finlandia.jpg" alt="Finlandia">
-            <div class="caption">
-                <h4 class="pull-right">$24.99</h4>
-                <h4><a href="#">First Product</a>
-                </h4>
-                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-            </div>
-            <div class="ratings">
-                <p class="pull-right">15 reviews</p>
-                <p>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                </p>
-            </div>
-        </div>
-    </div>
+    function vypisVysledokAkcia($result) {
+        echo "<div class='row'>";
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<div class='col-sm-4 col-lg-4 col-md-4'>";
+            echo "<div class='thumbnail'>";
+            echo "<img src='" . $row['picture'] ."' title='" . $row['name'] ."'>";
+            echo "<div class='caption'>";
+            echo "<h4 class='pull-right'>" . $row['price'] ." Kč</h4>";
+            echo "<h4><a href=''>" . $row['name'] . "</a></h4>";
+            echo "<p>" . $row['description'] . "</p>";
+            echo "<button onclick='putItemToBasket(" . $row['id_product'] . ")' class='btn btn-primary pull-right'>";
+            echo "<span>Objednaj  </span><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span></button>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
 
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <img src="http://placehold.it/320x150" alt="">
-            <div class="caption">
-                <h4 class="pull-right">$64.99</h4>
-                <h4><a href="#">Second Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="ratings">
-                <p class="pull-right">12 reviews</p>
-                <p>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </p>
-            </div>
-        </div>
-    </div>
+        }
+        echo "</div>"; // koniec row
+    }
 
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <img src="http://placehold.it/320x150" alt="">
-            <div class="caption">
-                <h4 class="pull-right">$74.99</h4>
-                <h4><a href="#">Third Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="ratings">
-                <p class="pull-right">31 reviews</p>
-                <p>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </p>
-            </div>
-        </div>
-    </div>
+    $connection = mysqli_connect('localhost', 'root', 'root', 'alko_shop')
+                        or die ('Could not connect: ') . mysql_error();
 
-</div>
+    $my_query = "SELECT p.id_product, p.name, p.price, p.picture, p.description FROM product as p where p.akcia = 1";
+    $result = mysqli_query($connection, $my_query);
+    vypisVysledokAkcia($result);
+
+?>

@@ -50,6 +50,7 @@ footer {
 
 h2 {
   padding-top: 50px;
+  /*padding-bottom: 20px;*/
 }
 
 .glyphicon-white, .glyphicon-white a {
@@ -79,4 +80,8 @@ h2 {
 
 .required-field {
   color: #FF8080;
+}
+
+.h3padding-top {
+  padding-top: 60px;
 }
