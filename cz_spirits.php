@@ -17,12 +17,15 @@
             echo "<div class='thumbnail'>";
             echo "<img src='" . $row['picture'] ."' title='" . $row['name'] ."'>";
             echo "<div class='caption'>";
-            echo "<h4 class='pull-right'>" . $row['price'] ." Kč</h4>";
-            echo "<h4><a href=''>" . $row['name'] . "</a></h4>";
+            echo "<h4><a>" . $row['name'] . "</a></h4>";
+            echo "<h4 >" . $row['price'] ." Kč</h4>";
             echo "<p>" . $row['description'] . "</p>";
-            echo "<button onclick='putItemToBasket(" . $row['id_product'] . ")' class='btn btn-primary pull-right'>";
-            echo "<span>Objednaj  </span><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span></button>";
+            echo "<div style='text-align: center;'><button onclick='putItemToBasket(" . $row['id_product'] . ")' class='btn btn-primary large'>";
+            echo "<span>Objednaj  </span><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span></button></div>";
             echo "</div>";
+            echo "<div id='product". $row['id_product'] ."alert' class='alert alert-success' style='display: none;'>";
+            echo "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>";
+            echo "Produkt bol pridaný do košíka.</div>";
             echo "</div>";
             echo "</div>";
 
@@ -42,5 +45,5 @@
         vypisVysledokLiehoviny($result, $row['type_name']);
     }
 
-
+    mysqli_close($connection);
 ?>

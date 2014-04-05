@@ -82,6 +82,7 @@
 	$errorsCount = 0;
 
 	$generalSuccess = "";
+	$generalError0 = "";
 
 	$generalError1 = "<p class='alert alert-danger my-error-message'>";
 	$generalError2 = "</p>";
@@ -218,14 +219,36 @@
 			$note = test_input($_POST['note']);
 		}
 
-		if ($errorsCount == 0) {
-			$generalSuccess = 	"<div style='margin-top: 15px;' class='alert alert-success alert-dismissable'>
-  									<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-  									<strong>Gratulujeme!</strong> Vaša objednávka bola spracovaná. Očakávajte jej doručenie.
-								</div>";	
+		if (count($_SESSION['basket']) > 0) {
+			if ($errorsCount == 0){
+				$insertQuery = "INSERT INTO `order`(order_date, order_time, block, room, chosen_date, chosen_time, email, description) 
+					values(current_date(), current_time(), '". $block ."', '". $room ."', str_to_date('". $date ."', '%d-%m-%Y'), str_to_date('". $time ."', '%h:%i:%s'), '". $email ."', '". $note ."')";
+				$getIdQuery = "select last_insert_id()";
+
+				mysqli_query($connection, $insertQuery);
+				$orderId = mysqli_query($connection, $getIdQuery);
+				$orderIdValue = mysqli_fetch_array($orderId);
+
+				foreach ($_SESSION['basket'] as $product => $quantity) {
+					$insertQuery2 = "INSERT INTO `order_product`(id_order, id_product, quantity) VALUES('". $orderIdValue[0] ."', '". $product ."', '". $quantity ."')";
+					mysqli_query($connection, $insertQuery2);
+				}	
+				$_SESSION['basket'] = array();
+				mysqli_close($connection);
+				$generalSuccess = 	"<div style='margin-top: 15px;' class='alert alert-success alert-dismissable'>
+	  									<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+	  									<strong>Gratulujeme!</strong> Vaša objednávka bola spracovaná. Očakávajte jej doručenie.
+									</div>";
+			}
+		}
+		else {
+			$generalError0 = 	"<div style='margin-top: 15px;' class='alert alert-danger alert-dismissable'>
+	  								<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+	  								<strong>Ups!</strong> Váš košík je prázdny. Objednávka nebola odoslaná.
+								</div>";
 		}
 
-
+		
 
 		// $headers = 'MIME-Version: 1.0' . '\r\n';
 		// $headers .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
@@ -243,8 +266,10 @@
 <div class="col-md-12">
 
 	<?php
-		echo $generalSuccess;	
+		echo $generalSuccess;
+		echo $generalError0;	
 	?>
+
 	<h3>Prosím vyplňte objednávací formulár</h3>
 
 	<form method="post" action="home_cz.php?tab=basket" class="form-horizontal" role="form">
@@ -326,8 +351,8 @@
 		<div class="form-group">
 			<label for="inputNote" class="col-sm-2 control-label">Poznámka</label>
 			<div class="col-md-8">
-				<textarea value="<?php if ($errorsCount > 0){ echo $note; } ?>" name='note' rows="3" my="params" 
-					class="form-control" id="inputNote" ></textarea>
+				<textarea name='note' rows="3" my="params" 
+					class="form-control" id="inputNote" ><?php if ($errorsCount > 0){ echo $note; } ?></textarea>
 			</div>
 		</div>
 		<div class='form-group'>

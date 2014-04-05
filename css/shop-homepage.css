@@ -85,3 +85,11 @@ h2 {
 .h3padding-top {
   padding-top: 60px;
 }
+
+.productAlertOff {
+  display: none;
+}
+
+.productAlertOn {
+  display: block;
+}

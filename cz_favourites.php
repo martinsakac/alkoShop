@@ -9,8 +9,8 @@
             echo "<div class='thumbnail'>";
             echo "<img src='" . $row['picture'] ."' title='" . $row['name'] ."'>";
             echo "<div class='caption'>";
-            echo "<h4 class='pull-right'>" . $row['price'] ." Kč</h4>";
-            echo "<h4><a href=''>" . $row['name'] . "</a></h4>";
+            echo "<h4><a>" . $row['name'] . "</a></h4>";
+            echo "<h4>" . $row['price'] ." Kč</h4>";
             echo "<p>" . $row['description'] . "</p>";
             echo "<button onclick='putItemToBasket(" . $row['id_product'] . ")' class='btn btn-primary pull-right'>";
             echo "<span>Objednaj  </span><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span></button>";
@@ -28,5 +28,7 @@
     $my_query = "SELECT p.id_product, p.name, p.price, p.picture, p.description FROM product as p where p.akcia = 1";
     $result = mysqli_query($connection, $my_query);
     vypisVysledokAkcia($result);
+
+    mysqli_close($connection);
 
 ?>

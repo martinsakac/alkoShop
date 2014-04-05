@@ -77,6 +77,10 @@ $(function() {
 
 // ajax function to add item to basket
 function putItemToBasket(item_id) {
+    var alertId = "product" + item_id + "alert";
+    //$('#'+alertId).removeClass('productAlertOff').addClass('productAlertOn');
+    $('#'+alertId).fadeIn('slow');
+    $('#'+alertId).delay(3000).fadeOut('slow');
 
     var xmlhttp = new XMLHttpRequest();
     

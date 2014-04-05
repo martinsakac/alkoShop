@@ -24,7 +24,7 @@
                                 $my_query = "SELECT p.id_product, p.name, p.price, p.picture, p.description FROM product as p where p.akcia = 1";
                                 $result = mysqli_query($connection, $my_query);
                                 while ($row = mysqli_fetch_array($result)) {
-                                    echo "<a href='#sekciaAkcia' class='list-group-item akcia-list'>". $row['name'] ."</a>";
+                                    echo "<a href='home_cz.php?tab=home#sekciaAkcia' class='list-group-item akcia-list'>". $row['name'] ."</a>";
                                 }
                             ?>
                         </div>
@@ -48,7 +48,7 @@
                                 $my_query = "SELECT t.name as type_name from category as c inner join type as t on c.id_category = t.id_category where c.name = 'wine'";
                                 $result = mysqli_query($connection, $my_query);
                                 while ($row = mysqli_fetch_array($result)) {
-                                    echo "<a href='#sekciaVino". $row['type_name'] ."' class='list-group-item vino-list'>";
+                                    echo "<a href='home_cz.php?tab=home#sekciaVino". $row['type_name'] ."' class='list-group-item vino-list'>";
                                     switch ($row['type_name']) {
                                         case 'fragolino': echo "Fragolino"; break;
                                     }
@@ -76,12 +76,12 @@
                                 $result = mysqli_query($connection, $my_query);
                                 while ($row = mysqli_fetch_array($result)) {
                                     switch ($row['type_name']) {
-                                        case 'vodka': echo "<a href='#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item liehoviny-list'>Vodka</a>"; break;
-                                        case 'rum': echo "<a href='#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Rum</a>"; break;
-                                        case 'whisky': echo "<a href='#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Whisky</a>"; break;
-                                        case 'bylinky': echo "<a href='#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Bylinky</a>"; break;
-                                        case 'palenka': echo "<a href='#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Pálenka</a>"; break;
-                                        case 'tequila': echo "<a href='#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Tequila</a>"; break;
+                                        case 'vodka': echo "<a href='home_cz.php?tab=home#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item liehoviny-list'>Vodka</a>"; break;
+                                        case 'rum': echo "<a href='home_cz.php?tab=home#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Rum</a>"; break;
+                                        case 'whisky': echo "<a href='home_cz.php?tab=home#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Whisky</a>"; break;
+                                        case 'bylinky': echo "<a href='home_cz.php?tab=home#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Bylinky</a>"; break;
+                                        case 'palenka': echo "<a href='home_cz.php?tab=home#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Pálenka</a>"; break;
+                                        case 'tequila': echo "<a href='home_cz.php?tab=home#sekciaLiehoviny". $row['type_name'] ."' class='list-group-item ". $row['type_name'] ."-liehoviny-list'>Tequila</a>"; break;
                                     }
                                 }
                             ?>
