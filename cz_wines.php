@@ -18,6 +18,9 @@
             echo "<button onclick='putItemToBasket(" . $row['id_product'] . ")' class='btn btn-primary pull-right'>";
             echo "<span>Objednaj  </span><span class='glyphicon glyphicon-shopping-cart glyphicon-white'></span></button>";
             echo "</div>";
+            echo "<div id='product". $row['id_product'] ."alert' class='alert alert-success' style='display: none;'>";
+            echo "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>";
+            echo "Produkt bol pridaný do košíka.</div>";
             echo "</div>";
             echo "</div>";
 
