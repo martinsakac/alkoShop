@@ -15,7 +15,10 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
-    <!-- Add custom CSS here -->
+    <!-- additional fonts -->
+    <link href="font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS here -->
     <link href="css/shop-homepage.css" rel="stylesheet">
 
     <!-- Favicon -->
@@ -38,7 +41,11 @@
         <div class="row">
 
 <!-------------------------------------------- Lavy navigacny panel -------------------------------------- -->
-        <?php require "cz_leftNavBar.php"; ?>
+        <?php
+            if (!(isset($_REQUEST['tab']) && ($_REQUEST['tab'] == "contact" || $_REQUEST['tab'] == "about"))) {
+                require "cz_leftNavBar.php";
+            }  
+        ?>
 
             <div class="col-md-9">
 

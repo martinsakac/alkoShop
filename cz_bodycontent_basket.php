@@ -249,14 +249,14 @@
 		}
 
 		
+		$headers = "From: " . $email;
+		$headers = "\nMIME-Version: 1.0\n";
+		$headers .= "Content-Type: text/html; charset=\"utf-8\"\n";
+		$headers .= 'From: sakac.m@hotmail.com' . '\r\n';
+		mail('sakac.m@gmail.com','test subject','test body',$headers);
 
-		// $headers = 'MIME-Version: 1.0' . '\r\n';
-		// $headers .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
-		// $headers .= 'From: sakac.m@hotmail.com' . '\r\n';
-		// mail('sakac.m@gmail.com','test subject','test body',$headers);
-
-		//$message = "Ahoj.";
-		//mail("sakac.m@gmail.com", "pokus", $message, "From: alkoshop@alkoshop.cz\n");
+		$message = "Ahoj.";
+		mail("sakac.m@gmail.com", "pokus", $message, "From: alkoshop@alkoshop.cz\n");
 	// koniec pasaze na spracovanie odoslaneho formulara	
 	}
 

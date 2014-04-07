@@ -80,6 +80,7 @@ h2 {
 
 .required-field {
   color: #FF8080;
+  /*color: #3276b1;*/
 }
 
 .h3padding-top {
@@ -92,4 +93,25 @@ h2 {
 
 .productAlertOn {
   display: block;
+}
+
+#contact-map {
+  margin-top: -20px; 
+  margin-bottom: 30px;
+}
+
+.list-inline a:hover {
+  text-decoration: none;
+}
+
+.contact-form-title {
+  padding-top: 10px;
+}
+
+.contact-form {
+  margin-top: 40px;
+}
+
+#about-carousel {
+  margin-top: -20px;
 }

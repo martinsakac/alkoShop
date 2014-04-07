@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav style="margin-bottom: 0px;" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -7,13 +7,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home_cz.php?tab=home">Alko shop</a>
+            <a class="navbar-brand" href="home_cz.php?tab=home">Alko4you</a>
+            <!-- <a href="home_cz.php?tab=home"><img src="pictures/logo.png" /></a> -->
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">  
-                <li><a href="home_en.php">English</a></li>
+                <li><a href="home_en.php" onclick="return false">English</a></li>
                 <?php
                     $itemsCount = count($_SESSION['basket']);
 

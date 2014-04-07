@@ -80,7 +80,7 @@ function putItemToBasket(item_id) {
     var alertId = "product" + item_id + "alert";
     //$('#'+alertId).removeClass('productAlertOff').addClass('productAlertOn');
     $('#'+alertId).fadeIn('slow');
-    $('#'+alertId).delay(3000).fadeOut('slow');
+    $('#'+alertId).delay(1500).fadeOut('slow');
 
     var xmlhttp = new XMLHttpRequest();
     
@@ -131,6 +131,4 @@ function updateQuantity(item_id){
     xmlhttp.open("GET", "updateQuantity.php?item_id=" + item_id + "&quantity=" + quantity, true);
     xmlhttp.send();
 }
-
-
 
