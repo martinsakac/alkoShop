@@ -1,15 +1,23 @@
 // date picker
 $(function() {
     $( "#datepicker" ).datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: "dd-mm-yy"
+        firstDay: 1,
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "dd-mm-yy",
+        beforeShowDay: function(date) {
+            var day = date.getDay();
+            return [(day != 1 && day != 2 && day != 6 && day != 0)];
+        }
     });
 });
 
 // time picker
 $(function () {
-    $('#timepicker').timepicker();
+    $('#timepicker').timepicker({
+        hourMin: 20,
+        stepMinute: 10
+    });
 });
 
 // sliding to elements
