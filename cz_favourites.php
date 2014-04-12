@@ -1,4 +1,4 @@
-<div id="sekciaAkcia" class="row" ><h2>Akcia</h2></div>
+<div id="sekciaAkcia" class="row nazovSekcie"><h2>Akcia</h2></div>
 
 <?php 
 

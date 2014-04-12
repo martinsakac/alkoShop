@@ -48,7 +48,7 @@ footer {
   margin: 50px 0;
 }
 
-h2 {
+.nazovSekcie h2 {
   padding-top: 50px;
   /*padding-bottom: 20px;*/
 }
@@ -114,4 +114,16 @@ h2 {
 
 #about-carousel {
   margin-top: -20px;
+}
+
+#sekciaAkcia {
+  padding-top: 0px;
+}
+
+.boldFont {
+  font-weight: bold;
+}
+
+.lineHeight {
+  line-height: 200%;
 }

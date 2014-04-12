@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Alko shop</title>
+    <title>Alko4you</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -52,11 +52,14 @@
                 <!-- Obsah tela -->
                 <?php 
                     if ((!isset($_REQUEST['tab']) && $_SESSION['tab'] == "home") || (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "home")) {
-                        require "carousel.php";
+                        echo "<div style='text-align: center; margin-bottom: -40px;' ><img src='pictures/logo.png' ></div>";
+                        //echo "<h2 class='obchod-nadpis'>haha</h2>";
+                        //require "carousel.php";
                         require "cz_favourites.php";
                         //require "cz_beers.php"; 
                         require "cz_wines.php";
                         require "cz_spirits.php";
+                        require "cz_condom.php";
                     }
 
                     if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "about") {

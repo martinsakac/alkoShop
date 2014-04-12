@@ -91,5 +91,29 @@
             </div>
         </div>
 
+<!-- Kondomy -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Kondómy</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="span3">
+                        <div class="list-group">
+                            <?php 
+                                $my_query = "SELECT p.name from product as p inner join type as t on p.id_type = t.id_type where t.name = 'condom'";
+                                $result = mysqli_query($connection, $my_query);
+                                while ($row = mysqli_fetch_array($result)) {
+                                    echo "<a href='home_cz.php?tab=home#sekciaKondomy' class='list-group-item kondomy-list'>". $row['name'] ."</a>";
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

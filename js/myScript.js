@@ -38,6 +38,12 @@ $(function() {
         return false;
     });
 
+    $(".kondomy-list").click(function(){
+        $("html, body").animate({
+            scrollTop:$("#sekciaKondomy").offset().top}, 1000);
+        return false;
+    });
+
     // podla druhu liehoviny
     $(".rum-liehoviny-list").click(function(){
         $("html, body").animate({
